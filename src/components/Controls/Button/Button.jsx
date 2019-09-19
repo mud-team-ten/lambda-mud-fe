@@ -9,7 +9,7 @@ const Button = props => {
   return (
     <button
       type="button"
-      className="nes-btn"
+      className="nes-btn directional-button"
       dangerouslySetInnerHTML={setDirection()}
     />
   );
