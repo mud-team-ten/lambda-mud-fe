@@ -1,6 +1,10 @@
 .App {
   text-align: center;
-  font-family: "Press Start 2P", cursive
+  font-family: "Press Start 2P", cursive;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100vh;
 }
 
 .App-logo {
