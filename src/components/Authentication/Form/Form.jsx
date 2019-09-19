@@ -20,7 +20,7 @@ class Form extends Component {
     });
   };
 
-  auth = (e) => {
+  auth = e => {
     e.preventDefault();
 
     let endpoint = "";
@@ -46,63 +46,65 @@ class Form extends Component {
     return axios
       .post(endpoint, usr)
       .then(res => console.log(res))
-      .catch(err => console.log(err));
+      .catch(err => {
+        this.setState({ error: err.message, showError: true });
+        console.log(this.state.error);
+      });
   };
-
-  errorHandler = err => {
-    this.setState({
-      error: err
-    })
-  }
 
   render() {
     return (
-      <form onSubmit={this.auth}>
-        <div className="nes-field auth-input">
-          <label htmlFor="username_field">Username</label>
-          <input
-            type="text"
-            id="username_field"
-            className="nes-input"
-            placeholder="Your Username"
-            name="username"
-            onChange={this.inputHandler}
-          />
-        </div>
-        <div className="nes-field auth-input">
-          <label htmlFor="password_field">Password</label>
-          <input
-            type="password"
-            id="password_field"
-            className="nes-input"
-            placeholder="Your Password"
-            name="password"
-            onChange={this.inputHandler}
-          />
-        </div>
-        {this.props.type === "register" && (
+      <div className="auth-form-wrapper">
+        <form onSubmit={this.auth}>
           <div className="nes-field auth-input">
-            <label htmlFor="confirm_field">Confirm Password</label>
+            <label htmlFor="username_field">Username</label>
             <input
-              type="password"
-              id="confirm_field"
+              type="text"
+              id="username_field"
               className="nes-input"
-              placeholder="Confirm Password"
-              name="confirm"
+              placeholder="Your Username"
+              name="username"
               onChange={this.inputHandler}
             />
           </div>
+          <div className="nes-field auth-input">
+            <label htmlFor="password_field">Password</label>
+            <input
+              type="password"
+              id="password_field"
+              className="nes-input"
+              placeholder="Your Password"
+              name="password"
+              onChange={this.inputHandler}
+            />
+          </div>
+          {this.props.type === "register" && (
+            <div className="nes-field auth-input">
+              <label htmlFor="confirm_field">Confirm Password</label>
+              <input
+                type="password"
+                id="confirm_field"
+                className="nes-input"
+                placeholder="Confirm Password"
+                name="confirm"
+                onChange={this.inputHandler}
+              />
+            </div>
+          )}
+          {this.props.type === "register" ? (
+            <button type="submit" className="nes-btn is-primary">
+              Register Account
+            </button>
+          ) : (
+            <button type="submit" className="nes-btn is-primary">
+              Log In
+            </button>
+          )}
+        </form>
+        {this.state.error && (
+          <span className="nes-text is-error" >{this.state.error}</span>
         )}
-        {this.props.type === "register" ? (
-          <button type="submit" className="nes-btn is-primary">
-            Register Account
-          </button>
-        ) : (
-          <button type="submit" className="nes-btn is-primary">
-            Log In
-          </button>
-        )}
-      </form>
+      </div>
     );
   }
 }
