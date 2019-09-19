@@ -3,7 +3,7 @@ import "nes.css/css/nes.min.css";
 
 const Button = props => {
   return (
-    <button type="button" class="nes-btn">
+    <button type="button" className="nes-btn">
       {props.direction}
     </button>
   );
