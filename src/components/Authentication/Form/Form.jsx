@@ -49,6 +49,12 @@ class Form extends Component {
       .catch(err => console.log(err));
   };
 
+  errorHandler = err => {
+    this.setState({
+      error: err
+    })
+  }
+
   render() {
     return (
       <form onSubmit={this.auth}>

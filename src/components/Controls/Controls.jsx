@@ -3,7 +3,7 @@ import Button from "./Button/Button";
 import "nes.css/css/nes.min.css";
 import "./Controls.css";
 
-const Controls = () => {
+function Controls() {
   return (
     <div className="controls-wrapper nes-container is-rounded">
       <div className="button-wrapper">
@@ -16,6 +16,6 @@ const Controls = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Controls;

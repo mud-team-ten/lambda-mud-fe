@@ -1,8 +1,8 @@
 import React from "react";
 import "nes.css/css/nes.min.css";
-import "./Button.css"
+import "./Button.css";
 
-const Button = props => {
+function Button(props) {
   const setDirection = () => {
     return { __html: props.direction };
   };
@@ -13,6 +13,6 @@ const Button = props => {
       dangerouslySetInnerHTML={setDirection()}
     />
   );
-};
+}
 
 export default Button;
