@@ -1,0 +1,13 @@
+.button-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.vertical-buttons {
+    display: inherit;
+    flex-flow: column;
+}
+
+.vertical-buttons button {
+    margin: 25px 5px
+}
