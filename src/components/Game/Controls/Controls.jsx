@@ -3,19 +3,19 @@ import Button from "./Button/Button";
 import "nes.css/css/nes.min.css";
 import "./Controls.css";
 
-const Controls = () => {
+function Controls() {
   return (
     <div className="controls-wrapper nes-container is-rounded">
       <div className="button-wrapper">
-        <Button direction="&#8592" />
+        <Button direction="w" />
         <div className="vertical-buttons">
-          <Button direction="&#8593" />
-          <Button direction="&#8595" />
+          <Button direction="n" />
+          <Button direction="s" />
         </div>
-        <Button direction="&#8594" />
+        <Button direction="e" />
       </div>
     </div>
   );
-};
+}
 
 export default Controls;
