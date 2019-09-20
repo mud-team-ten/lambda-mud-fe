@@ -11,7 +11,7 @@ export const config = {
     return axios.create({
       baseURL: this.api,
       headers: {
-        Authorization: `${localStorage.getItem("key")}`
+        Authorization: `${localStorage.getItem("key")}` || null
       }
     });
   }
