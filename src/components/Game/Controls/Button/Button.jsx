@@ -3,8 +3,15 @@ import "nes.css/css/nes.min.css";
 import "./Button.css";
 
 function Button(props) {
+  const dir = {
+    w: "&#11207",
+    e: "&#11208",
+    n: "&#11205",
+    s: "&#11206"
+  }
+
   const setDirection = () => {
-    return { __html: props.direction };
+    return { __html: dir[props.direction] };
   };
   return (
     <button
