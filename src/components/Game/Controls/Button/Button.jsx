@@ -8,7 +8,11 @@ function Button(props) {
     e: "&#11208",
     n: "&#11205",
     s: "&#11206"
-  }
+  };
+
+  const clickHandler = () => {
+    props.move(props.direction);
+  };
 
   const setDirection = () => {
     return { __html: dir[props.direction] };
@@ -18,6 +22,7 @@ function Button(props) {
       type="button"
       className="nes-btn directional-button"
       dangerouslySetInnerHTML={setDirection()}
+      onClick={clickHandler}
     />
   );
 }

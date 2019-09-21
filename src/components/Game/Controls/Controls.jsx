@@ -3,16 +3,16 @@ import Button from "./Button/Button";
 import "nes.css/css/nes.min.css";
 import "./Controls.css";
 
-function Controls() {
+function Controls(props) {
   return (
     <div className="controls-wrapper nes-container is-rounded">
       <div className="button-wrapper">
-        <Button direction="w" />
+        <Button direction="w" move={props.move} />
         <div className="vertical-buttons">
-          <Button direction="n" />
-          <Button direction="s" />
+          <Button direction="n" move={props.move} />
+          <Button direction="s" move={props.move} />
         </div>
-        <Button direction="e" />
+        <Button direction="e" move={props.move} />
       </div>
     </div>
   );
