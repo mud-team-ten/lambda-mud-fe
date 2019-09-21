@@ -1,18 +1,18 @@
 import axios from "axios";
 require("dotenv").config();
 
-const endpoint =
-  process.env.REACT_APP_BASE_ENDPOINT || "http://localhost:3000/";
-
-export const config = {
-  api: endpoint,
+const config = {
+  endpoint: process.env.REACT_APP_BASE_ENDPOINT || "http://localhost:3000/",
 
   axiosHeaders: function() {
+    console.log(this.endpoint, localStorage.getItem("key"));
     return axios.create({
-      baseURL: this.api,
+      baseURL: this.endpoint,
       headers: {
-        Authorization: `${localStorage.getItem("key")}` || null
+        Authorization: `Token ${localStorage.getItem("key")}` || null
       }
     });
   }
 };
+
+export default config;
