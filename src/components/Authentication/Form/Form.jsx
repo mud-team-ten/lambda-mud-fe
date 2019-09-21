@@ -37,7 +37,7 @@ class Form extends Component {
     const baseUrl =
       process.env.REACT_APP_BASE_ENDPOINT || "http://localhost:8000/";
     if (this.props.type === "register") return `${baseUrl}/registration/`;
-    else return `${baseUrl}/login/`;
+    else return `${baseUrl}/api/login/`;
   };
 
   packUser = () => {
@@ -63,7 +63,7 @@ class Form extends Component {
     return axios
       .post(endpoint, usr)
       .then(res => {
-        localStorage.setItem("token", res.data.key);
+        localStorage.setItem("key", res.data.key);
         this.props.history.push("/game");
       })
       .catch(err => {
