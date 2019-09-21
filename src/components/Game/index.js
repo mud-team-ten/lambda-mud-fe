@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Controls from "./Controls/Controls";
+import TextBox from "./TextBox";
 import config from "../../config";
 
 export default class Game extends Component {
@@ -8,14 +9,29 @@ export default class Game extends Component {
     name: "",
     title: "",
     description: "",
-    players: []
+    players: [],
+    error_msg: ""
   };
 
-  movePlayer(direction) {
+  refresh(data) {
+    return this.setState({
+      uuid: data.uuid,
+      name: data.name,
+      title: data.title,
+      description: data.description,
+      players: data.players,
+      error_msg: data.error_msg
+    });
+  }
+
+  movePlayer = direction => {
     config
       .axiosHeaders()
       .post("/api/adv/move", { direction })
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res);
+        return this.refresh(res.data);
+      })
       .catch(err => console.log(err));
   }
 
@@ -23,20 +39,16 @@ export default class Game extends Component {
     config
       .axiosHeaders()
       .get("/api/adv/init/")
-      .then(res => {
-        const { data } = res;
-        this.setState({
-          uuid: data.uuid,
-          name: data.name,
-          title: data.title,
-          description: data.description,
-          players: data.players
-        });
-      })
+      .then(res => this.refresh(res.data))
       .catch(err => console.log(err));
   }
 
   render() {
-    return <Controls move={this.movePlayer} />;
+    return (
+      <div className="nes-container">
+        <Controls move={this.movePlayer} />
+        <TextBox info={this.state} />
+      </div>
+    );
   }
 }
