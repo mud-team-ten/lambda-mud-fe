@@ -59,6 +59,7 @@ class Form extends Component {
     this.setState({ error: "" });
     if (this.props.type === "register" && !this.checkReg()) return;
     const endpoint = this.getEndpoint();
+    console.log(endpoint)
     const usr = this.packUser();
     return axios
       .post(endpoint, usr)
