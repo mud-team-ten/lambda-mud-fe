@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
-      <Route path="/" exact component={Game} />
+      <Route path="/game" exact component={Game} />
     </div>
   );
 }
