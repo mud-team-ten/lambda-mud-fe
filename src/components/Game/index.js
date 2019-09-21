@@ -53,7 +53,12 @@ export default class Game extends Component {
     return (
       <div className="game-wrapper">
         <div className="logout-wrapper">
-          <button className="nes-btn" id="logout-button" type="button">
+          <button
+            className="nes-btn"
+            id="logout-button"
+            type="button"
+            onClick={this.logout}
+          >
             <i class="nes-icon close" />
           </button>
         </div>
