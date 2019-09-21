@@ -1,7 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import Login from "./components/Authentication/Login/Login";
-import Register from "./components/Authentication/Register/Register";
+import Login from "./components/Authentication/Login";
+import Register from "./components/Authentication/Register";
 import Game from "./components/Game";
 import "./App.css";
 import "nes.css/css/nes.min.css";
