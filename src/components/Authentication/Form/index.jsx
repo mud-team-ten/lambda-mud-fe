@@ -35,9 +35,9 @@ class Form extends Component {
 
   getEndpoint = () => {
     const baseUrl =
-      process.env.REACT_APP_BASE_ENDPOINT || "http://localhost:8000/";
-    if (this.props.type === "register") return `${baseUrl}/registration/`;
-    else return `${baseUrl}/api/login/`;
+      process.env.REACT_APP_BASE_ENDPOINT || "http://localhost:8000";
+    if (this.props.type === "register") return `${baseUrl}/rest-auth/registration/`;
+    else return `${baseUrl}/rest-auth/login/`;
   };
 
   packUser = () => {
